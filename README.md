@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Login
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
@@ -57,3 +58,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# ttmmpay.2.0
+its a dutch pay method app to split the bills among the gang without having any extra or less pay to anyone
+>>>>>>> 9375ad260e44ae45fe3ae4d5ce1792bc38069f05
