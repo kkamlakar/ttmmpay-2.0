@@ -1,0 +1,57 @@
+<h2>Dishes and People</h2>
+
+<table class="dish-table">
+  <thead>
+    <tr>
+      <th>Dish</th>
+      <th>Price</th>
+      <th>People Who Had It</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dish of dishes">
+      <td>{{ dish.name }}</td>
+      <td>{{ dish.price.toFixed(2) }}</td>
+      <td>{{ dish.people.join(', ') }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Add Person to Dish</h2>
+
+<table class="assign-table">
+  <tr>
+    <th>Person</th>
+    <th>Dish</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>
+      <select id="person" [(ngModel)]="selectedPerson">
+        <option *ngFor="let person of persons" [value]="person.name">{{ person.name }}</option>
+      </select>
+    </td>
+    <td>
+      <select id="dish" [(ngModel)]="selectedDish">
+        <option *ngFor="let dish of dishes" [value]="dish.name">{{ dish.name }}</option>
+      </select>
+    </td>
+    <td>
+      <button (click)="addPersonToDish(selectedPerson, selectedDish)">Add</button>
+    </td>
+  </tr>
+</table>
+
+<div class="split-button-wrapper">
+  <button class="calculate-btn" (click)="calculateSplitBill()">💰Split the Bill</button>
+</div>
+
+<!-- Show Split Per Person -->
+<div *ngIf="splitBills && objectKeys(splitBills).length > 0" style="margin-top: 20px;">
+  <h3>Split Bills Per Person:</h3>
+  <ul>
+    <li *ngFor="let person of objectKeys(splitBills)">
+      {{ person }}: {{ splitBills[person] | number:'1.2-2' }}
+    </li>
+  </ul>
+</div>

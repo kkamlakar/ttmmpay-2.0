@@ -1,6 +1,19 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideRouter } from '@angular/router';
+import { importProvidersFrom } from '@angular/core';  // Import importProvidersFrom
+import { FormsModule } from '@angular/forms';  // Correct import for FormsModule
+import { LoginComponent } from './app/login/login.component';
+import { HomeComponent } from './app/home/home.component';
 import { AppComponent } from './app/app.component';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+const routes = [
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+];
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes),
+    importProvidersFrom(FormsModule)  // Correctly import FormsModule
+  ]
+});
